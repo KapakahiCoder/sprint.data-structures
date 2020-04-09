@@ -28,8 +28,23 @@ class LinkedList {
   }
 
   findNode(value) {
+    let currentBox = this.head;
+    console.log(currentBox, "------------------------------");
     /*returns first node that has a value matching what was passed in and
     returns null when no value is found*/
+    //need a while loop
+    //check if value, if no value then return null
+
+    while (currentBox) {
+      if (currentBox.value === value) {
+        console.log(currentBox, "AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        return currentBox;
+      } else {
+        console.log("wwwwwwwwwwwwwwwwwwwww");
+        currentBox = currentBox.next;
+      }
+    }
+    return null;
   }
 
   /*

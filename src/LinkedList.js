@@ -21,9 +21,16 @@ class LinkedList {
     return (this.tail = box);
   }
 
-  removeHead() {}
+  removeHead() {
+    let headBox = this.head; //<- this is the head before removal
+    this.head = this.head.next; // <- this is after removal
+    return headBox;
+  }
 
-  findNode(value) {}
+  findNode(value) {
+    /*returns first node that has a value matching what was passed in and
+    returns null when no value is found*/
+  }
 
   /*
 +-------------------------+

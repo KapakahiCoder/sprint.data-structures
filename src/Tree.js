@@ -1,49 +1,47 @@
-function Node(value) {
-  this.next = null;
-  this.value = value;
-}
-
-class LinkedList {
-  constructor(headValue) {
-    if (headValue !== undefined) {
-      this.head = new Node(headValue);
-      this.tail = this.head;
-    }
+class Tree {
+  constructor(value) {
+    this.value = value;
+    this.children = [];
   }
 
-  appendToTail(value) {
-    let box = new Node(value);
-    if (this.head === undefined) {
-      this.head = box;
-      this.tail = this.head;
-    } else {
-      this.tail.next = box;
-    }
-
-    return (this.tail = box);
+  addChild(value) {
+    //adds a child to tree/subtree and returns the new child node
+    //(which should be a tree instance)
+    const newChild = new Tree(value);
+    this.children.push(newChild);
+    return newChild;
   }
 
-  removeHead() {
-    let headBox = this.head; //<- this is the head before removal
-    this.head = this.head.next; // <- this is after removal
-    return headBox;
-  }
-
-  findNode(value) {
-    let currentBox = this.head;
-    /*returns first node that has a value matching what was passed in and
-    returns null when no value is found*/
-    //need a while loop
-    //check if value, if no value then return null
-
-    while (currentBox) {
-      if (currentBox.value === value) {
-        return currentBox;
+  contains(value) {
+    let result = false;
+    let childValue;
+    const findValue = (thisNode) => {
+      if (thisNode.value === value) {
+        result = true;
+        childValue = thisNode;
       } else {
-        currentBox = currentBox.next;
+        thisNode.children.forEach(function(child) {
+          findValue(child);
+        });
       }
-    }
-    return null;
+    };
+
+    findValue(this); //<--- starter
+
+    return result;
+  }
+
+  remove(value) {
+    /*removes the value from tree and returns the removed value. 
+    You may need to write tests for this.*/
+
+    //search tree for value
+    let result = this.contains(value);
+    console.log(answer, "--------ANSWER!!------------");
+    // found value
+    // remove value and all branches below it
+
+    return result.value;
   }
 
   /*
@@ -54,26 +52,17 @@ The following are part of the advanced requirements.
 Do not proceed until you are done with the basic
 requirements for ALL data structures in this exercise.
 */
+  traverseDepthFirst(fn) {}
 
-  forEach(callback) {}
-
-  print() {}
-
-  insertHead(value) {}
-
-  insertAfter(refNode, value) {}
-
-  removeAfter(refNode) {}
+  traverseBreadthFirst(fn) {}
 }
-
-module.exports = LinkedList;
 
 /*
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 |X                               X
-|X   Basic Requirements:         X
 |X   What is the time complexity X
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 */
+module.exports = Tree;

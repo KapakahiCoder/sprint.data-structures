@@ -16,6 +16,8 @@ class LinkedList {
     if (this.head === undefined) {
       this.head = box;
       this.tail = this.head;
+    } else {
+      this.tail.next = box;
     }
 
     return (this.tail = box);
@@ -29,7 +31,6 @@ class LinkedList {
 
   findNode(value) {
     let currentBox = this.head;
-    console.log(currentBox, "------------------------------");
     /*returns first node that has a value matching what was passed in and
     returns null when no value is found*/
     //need a while loop
@@ -37,10 +38,8 @@ class LinkedList {
 
     while (currentBox) {
       if (currentBox.value === value) {
-        console.log(currentBox, "AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         return currentBox;
       } else {
-        console.log("wwwwwwwwwwwwwwwwwwwww");
         currentBox = currentBox.next;
       }
     }
@@ -51,7 +50,6 @@ class LinkedList {
 +-------------------------+
 | Advanced Requirements!! |
 +-------------------------+
-
 The following are part of the advanced requirements.
 Do not proceed until you are done with the basic
 requirements for ALL data structures in this exercise.

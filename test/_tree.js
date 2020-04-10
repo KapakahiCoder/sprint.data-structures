@@ -34,7 +34,9 @@ describe("Trees", () => {
     it("should be able to add a child to a tree's child", () => {
       tree.addChild(2);
       tree.children[0].addChild(3);
+      tree.children[0].children[0].addChild(5);
       expect(tree.children[0].children[0].value).to.equal(3);
+      expect(tree.children[0].children[0].children[0].value).to.equal(5);
     });
   });
 
@@ -44,7 +46,9 @@ describe("Trees", () => {
     });
 
     it("should return true if a value exists", () => {
+      tree.addChild(1);
       tree.addChild(2);
+      expect(tree.contains(1)).to.equal(true);
       expect(tree.contains(2)).to.equal(true);
     });
 
@@ -61,17 +65,29 @@ describe("Trees", () => {
       expect(tree.contains(4)).to.equal(true);
       expect(tree.contains(5)).to.equal(true);
     });
+
+    describe.only("The remove method", () => {
+      it("should exist on the Tree prototype", () => {
+        expect(Tree.prototype.remove).to.exist;
+      });
+
+      it("should remove value from the tree and returns the removed value", () => {
+        tree.addChild(1);
+        tree.addChild(2);
+        let removed = tree.remove(2);
+        expect(removed).to.equal(2);
+        expect(tree.contains(2)).to.equal(false);
+      });
+    });
   });
 
   /*
 +-------------------------+
 | Advanced Requirements!! |
 +-------------------------+
-
 The following are part of the advanced requirements.
 Do not proceed until you are done with the basic
 requirements for ALL data structures in this exercise.
-
 Uncomment by removing the 'x'.
 */
 

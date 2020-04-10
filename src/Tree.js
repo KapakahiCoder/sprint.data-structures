@@ -14,11 +14,11 @@ class Tree {
 
   contains(value) {
     let result = false;
-    let childValue;
+    //let childValue;
     const findValue = (thisNode) => {
       if (thisNode.value === value) {
         result = true;
-        childValue = thisNode;
+        // childValue = thisNode;
       } else {
         thisNode.children.forEach(function(child) {
           findValue(child);

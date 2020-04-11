@@ -53,6 +53,7 @@ class Tree {
     };
     searchDeeper(this);
     return nodeToRemove;
+    s;
   }
 
   /*

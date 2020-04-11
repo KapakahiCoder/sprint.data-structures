@@ -22,6 +22,34 @@ class BinarySearchTree {
     traverse(this);
     return this;
   }
+
+  contains(value) {
+    let wasFound = false;
+    const traverse = function(node) {
+      if (value === node.value) {
+        wasFound = true;
+      } else if (value < node.value && node.left) {
+        traverse(node.left);
+      } else if (value > node.value && node.right) {
+        traverse(node.right);
+      }
+    };
+    traverse(this);
+    return wasFound;
+  }
+
+  traverseDepthFirstInOrder(callback) {
+    const traverse = function(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      callback(node);
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+    traverse(this);
+  }
 }
 
 /* 

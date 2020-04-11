@@ -32,16 +32,27 @@ class Tree {
   }
 
   remove(value) {
-    /*removes the value from tree and returns the removed value. 
-    You may need to write tests for this.*/
-
-    //search tree for value
-    let result = this.contains(value);
-    console.log(answer, "--------ANSWER!!------------");
-    // found value
-    // remove value and all branches below it
-
-    return result.value;
+    //removes the value from tree and returns the removed value.
+    let nodeToRemove;
+    if (this.contains(value) === false) {
+      return undefined;
+    }
+    const searchDeeper = function(node) {
+      //search the initial node
+      if (node.value === value) {
+        nodeToRemove = node.value;
+        if (node.children) {
+          node.value = undefined;
+          node.children = [];
+        }
+      } else if (node.children) {
+        node.children.forEach((element) => {
+          searchDeeper(element);
+        });
+      }
+    };
+    searchDeeper(this);
+    return nodeToRemove;
   }
 
   /*

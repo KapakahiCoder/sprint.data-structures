@@ -78,6 +78,10 @@ describe("Trees", () => {
         expect(removed).to.equal(2);
         expect(tree.contains(2)).to.equal(false);
       });
+
+      it("should return undefined if no value is inputted", () => {
+        expect(tree.remove(3)).to.equal(undefined);
+      });
     });
   });
 

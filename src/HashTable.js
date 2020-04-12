@@ -13,14 +13,16 @@ class HashTable {
 
   retrieve(key) {
     const idx = simpleHash(key, this.limit);
-    let result;
-    result = this.storage[key];
-    return result;
+    return this.storage[key];
   }
 
   remove(key) {
-    delete this.storage[key];
-    return true;
+    if (this.storage[key]) {
+      delete this.storage[key];
+      this.storage[key] = null;
+      return true;
+    }
+    return false;
   }
 }
 

@@ -174,70 +174,70 @@ requirements for ALL data structures in this exercise.
 Uncomment by removing the 'x'.
 */
 
-  xdescribe("The forEach method", () => {
-    it("should exist on the Graph prototype", () => {
-      expect(Graph.prototype.addEdge).to.exist;
-    });
+  //   xdescribe("The forEach method", () => {
+  //     it("should exist on the Graph prototype", () => {
+  //       expect(Graph.prototype.addEdge).to.exist;
+  //     });
 
-    it("should run callback function on the value of all nodes in the graph", () => {
-      const results = [];
-      graph.addNode(5);
-      graph.addNode(3);
-      graph.addNode(6);
-      graph.forEach((value) => {
-        results.push(value);
-      });
-      expect(results).to.include.members(["5", "3", "6"]);
-    });
-  });
+  //     it("should run callback function on the value of all nodes in the graph", () => {
+  //       const results = [];
+  //       graph.addNode(5);
+  //       graph.addNode(3);
+  //       graph.addNode(6);
+  //       graph.forEach((value) => {
+  //         results.push(value);
+  //       });
+  //       expect(results).to.include.members(["5", "3", "6"]);
+  //     });
+  //   });
 
-  xdescribe("The traverseDepthFirst method", () => {
-    it("should exist on the Graph prototype", () => {
-      expect(Graph.prototype.traverseDepthFirst).to.exist;
-    });
+  //   xdescribe("The traverseDepthFirst method", () => {
+  //     it("should exist on the Graph prototype", () => {
+  //       expect(Graph.prototype.traverseDepthFirst).to.exist;
+  //     });
 
-    it("should travel down the graph before across", () => {
-      graph.addNode(1);
-      graph.addNode(2);
-      graph.addNode(3);
-      graph.addNode(4);
-      graph.addNode(5);
-      graph.addNode(6);
-      graph.addEdge(1, 2);
-      graph.addEdge(1, 4);
-      graph.addEdge(2, 3);
-      graph.addEdge(3, 5);
-      graph.addEdge(5, 6);
-      const depthFirstResult = [];
-      graph.traverseDepthFirst(1, (value) => {
-        depthFirstResult.push(value);
-      });
-      expect(depthFirstResult).to.eql([1, 2, 3, 5, 6, 4]);
-    });
-  });
+  //     it("should travel down the graph before across", () => {
+  //       graph.addNode(1);
+  //       graph.addNode(2);
+  //       graph.addNode(3);
+  //       graph.addNode(4);
+  //       graph.addNode(5);
+  //       graph.addNode(6);
+  //       graph.addEdge(1, 2);
+  //       graph.addEdge(1, 4);
+  //       graph.addEdge(2, 3);
+  //       graph.addEdge(3, 5);
+  //       graph.addEdge(5, 6);
+  //       const depthFirstResult = [];
+  //       graph.traverseDepthFirst(1, (value) => {
+  //         depthFirstResult.push(value);
+  //       });
+  //       expect(depthFirstResult).to.eql([1, 2, 3, 5, 6, 4]);
+  //     });
+  //   });
 
-  xdescribe("The traverseBreadthFirst method", () => {
-    it("should exist on the Graph prototype", () => {
-      expect(Graph.prototype.traverseBreadthFirst).to.exist;
-    });
+  //   xdescribe("The traverseBreadthFirst method", () => {
+  //     it("should exist on the Graph prototype", () => {
+  //       expect(Graph.prototype.traverseBreadthFirst).to.exist;
+  //     });
 
-    it("should travel across the graph before down", () => {
-      graph.addNode(1);
-      graph.addNode(2);
-      graph.addNode(3);
-      graph.addNode(4);
-      graph.addNode(5);
-      graph.addNode(6);
-      graph.addEdge(1, 2);
-      graph.addEdge(1, 4);
-      graph.addEdge(2, 3);
-      graph.addEdge(3, 5);
-      graph.addEdge(2, 6);
-      const depthFirstResult = [];
-      graph.traverseBreadthFirst(1, (value) => {
-        depthFirstResult.push(value);
-      });
-      expect(depthFirstResult).to.eql([1, 2, 4, 3, 6, 5]);
-    });
-  });
+  //     it("should travel across the graph before down", () => {
+  //       graph.addNode(1);
+  //       graph.addNode(2);
+  //       graph.addNode(3);
+  //       graph.addNode(4);
+  //       graph.addNode(5);
+  //       graph.addNode(6);
+  //       graph.addEdge(1, 2);
+  //       graph.addEdge(1, 4);
+  //       graph.addEdge(2, 3);
+  //       graph.addEdge(3, 5);
+  //       graph.addEdge(2, 6);
+  //       const depthFirstResult = [];
+  //       graph.traverseBreadthFirst(1, (value) => {
+  //         depthFirstResult.push(value);
+  //       });
+  //       expect(depthFirstResult).to.eql([1, 2, 4, 3, 6, 5]);
+  //     });
+  //   });
 });

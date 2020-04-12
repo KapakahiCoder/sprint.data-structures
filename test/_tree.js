@@ -95,47 +95,47 @@ requirements for ALL data structures in this exercise.
 Uncomment by removing the 'x'.
 */
 
-  xdescribe("The traverseDepthFirst method", () => {
-    it("should exist on the Tree prototype", () => {
-      expect(Tree.prototype.traverseDepthFirst).to.exist;
-    });
+  //   xdescribe("The traverseDepthFirst method", () => {
+  //     it("should exist on the Tree prototype", () => {
+  //       expect(Tree.prototype.traverseDepthFirst).to.exist;
+  //     });
 
-    it("should travel down the tree before across", () => {
-      tree.addChild(2);
-      tree.addChild(3);
-      tree.children[0].addChild(4);
-      tree.children[1].addChild(5);
-      const depthFirstResult = [];
-      tree.traverseDepthFirst((node) => depthFirstResult.push(node.value));
-      expect(depthFirstResult).to.eql([4, 2, 5, 3, 1]);
-    });
+  //     it("should travel down the tree before across", () => {
+  //       tree.addChild(2);
+  //       tree.addChild(3);
+  //       tree.children[0].addChild(4);
+  //       tree.children[1].addChild(5);
+  //       const depthFirstResult = [];
+  //       tree.traverseDepthFirst((node) => depthFirstResult.push(node.value));
+  //       expect(depthFirstResult).to.eql([4, 2, 5, 3, 1]);
+  //     });
 
-    it("should take a function as the parameter", () => {
-      const x = (node) => node;
-      tree.traverseDepthFirst(x);
-      expect(x).to.be.a("function");
-    });
-  });
+  //     it("should take a function as the parameter", () => {
+  //       const x = (node) => node;
+  //       tree.traverseDepthFirst(x);
+  //       expect(x).to.be.a("function");
+  //     });
+  //   });
 
-  xdescribe("The traverseBreadthFirst method", () => {
-    it("should exist on the Tree prototype", () => {
-      expect(Tree.prototype.traverseBreadthFirst).to.exist;
-    });
+  //   xdescribe("The traverseBreadthFirst method", () => {
+  //     it("should exist on the Tree prototype", () => {
+  //       expect(Tree.prototype.traverseBreadthFirst).to.exist;
+  //     });
 
-    it("should travel across the tree before going down", () => {
-      tree.addChild(2);
-      tree.addChild(3);
-      tree.children[0].addChild(4);
-      tree.children[1].addChild(5);
-      const breadthFirstResult = [];
-      tree.traverseBreadthFirst((node) => breadthFirstResult.push(node.value));
-      expect(breadthFirstResult).to.eql([1, 2, 3, 4, 5]);
-    });
+  //     it("should travel across the tree before going down", () => {
+  //       tree.addChild(2);
+  //       tree.addChild(3);
+  //       tree.children[0].addChild(4);
+  //       tree.children[1].addChild(5);
+  //       const breadthFirstResult = [];
+  //       tree.traverseBreadthFirst((node) => breadthFirstResult.push(node.value));
+  //       expect(breadthFirstResult).to.eql([1, 2, 3, 4, 5]);
+  //     });
 
-    it("should take a function as the parameter", () => {
-      const x = (node) => node;
-      tree.traverseBreadthFirst(x);
-      expect(x).to.be.a("function");
-    });
-  });
+  //     it("should take a function as the parameter", () => {
+  //       const x = (node) => node;
+  //       tree.traverseBreadthFirst(x);
+  //       expect(x).to.be.a("function");
+  //     });
+  //   });
 });

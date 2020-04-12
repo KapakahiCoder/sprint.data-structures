@@ -8,18 +8,19 @@ class HashTable {
 
   insert(key, value) {
     const index = simpleHash(key, this.limit);
-    this.storage[key] = value;
+    this.storage[index] = value;
   }
 
   retrieve(key) {
     const idx = simpleHash(key, this.limit);
-    return this.storage[key];
+    return this.storage[idx];
   }
 
   remove(key) {
-    if (this.storage[key]) {
-      delete this.storage[key];
-      this.storage[key] = null;
+    const idx = simpleHash(key, this.limit);
+    if (this.storage[idx]) {
+      delete this.storage[idx];
+      this.storage[idx] = null;
       return true;
     }
     return false;

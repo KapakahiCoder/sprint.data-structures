@@ -53,10 +53,9 @@ class Tree {
     };
     searchDeeper(this);
     return nodeToRemove;
-    s;
   }
-
-  /*
+}
+/*
 +-------------------------+
 | Advanced Requirements!! |
 +-------------------------+
@@ -64,10 +63,10 @@ The following are part of the advanced requirements.
 Do not proceed until you are done with the basic
 requirements for ALL data structures in this exercise.
 */
-  traverseDepthFirst(fn) {}
+//   traverseDepthFirst(fn) {}
 
-  traverseBreadthFirst(fn) {}
-}
+//   traverseBreadthFirst(fn) {}
+// }
 
 /*
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

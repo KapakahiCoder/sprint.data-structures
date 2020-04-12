@@ -7,14 +7,21 @@ class HashTable {
   }
 
   insert(key, value) {
-    const index = simpleHash(k, this.limit);
+    const index = simpleHash(key, this.limit);
+    this.storage[key] = value;
   }
 
   retrieve(key) {
-    const idx = simpleHash(k, this.limit);
+    const idx = simpleHash(key, this.limit);
+    let result;
+    result = this.storage[key];
+    return result;
   }
 
-  remove(key) {}
+  remove(key) {
+    delete this.storage[key];
+    return true;
+  }
 }
 
 module.exports = HashTable;
